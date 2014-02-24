@@ -18,6 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
+### In your Capfile
+
+```ruby
+require 'capistrano/twelvefactor'
+```
+
 ### In your $stage.rb
 
 Set the file you want to be written to, in order to change environment
