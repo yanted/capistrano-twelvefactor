@@ -1,2 +1,2 @@
 # Default value for capistrano
-set :environment_file, '.bashrc'
+set :environment_file, '.env'

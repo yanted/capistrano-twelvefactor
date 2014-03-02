@@ -27,11 +27,11 @@ require 'capistrano/twelvefactor'
 ### In your $stage.rb
 
 Set the file you want to be written to, in order to change environment
-variables. Usually this would be `.bashrc`, `/etc/environment` or something
-similar, depending on your linux OS. The default is `.bashrc`.
+variables. Usually this would be `.env`, `.bashrc`, `/etc/environment` or something
+similar, depending on your OS and app setup. The default is `.env`.
 
 ```ruby
-set :environment_file, '.bashrc'
+set :environment_file, '.custom_file'
 ```
 
 ### On your command line
@@ -39,13 +39,33 @@ set :environment_file, '.bashrc'
 #### Setting a value
 
 ```bash
-$ cap production config:set FOO=bar
+$ cap production config:set[FOO=bar]
+```
+
+**Note**: If your run zsh, you have to use quotes since square brackets are used
+for some shell features:
+
+
+```bash
+$ cap production "config:set[FOO=bar]"
 ```
 
 #### Removing a value
 
 ```bash
-$ cap production config:unset FOO
+$ cap production config:unset[FOO]
+```
+
+Same zsh workaround applies here.
+
+### Restarting your app
+
+Sometimes a change in the environment file requires a restart of your
+application. Add this to your `deploy.rb` to do so:
+
+```ruby
+after 'config:set', 'deploy:restart'
+after 'config:unset', 'deploy:restart'
 ```
 
 ## Contributing
