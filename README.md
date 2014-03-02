@@ -42,7 +42,7 @@ set :environment_file, '.custom_file'
 $ cap production config:set[FOO=bar]
 ```
 
-**Note**: If your run zsh, you have to use quotes since square brackets are used
+**Note**: If you run zsh, you have to use quotes since square brackets are used
 for some shell features:
 
 
