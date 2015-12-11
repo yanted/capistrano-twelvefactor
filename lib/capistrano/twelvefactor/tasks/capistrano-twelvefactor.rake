@@ -11,6 +11,14 @@ namespace :config do
     end
   end
 
+  desc 'List config'
+  task :list, :options do |task, args|
+    cmd = Capistrano::Twelvefactor::Command.new(file_name, nil)
+    on release_roles :all do
+      exec_cmd cmd.list_command
+    end
+  end
+
   desc 'Set config value by key'
   task :set, :options do |task, args|
     keys = [:key, :value]
