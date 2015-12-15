@@ -29,6 +29,10 @@ module Capistrano
         [grep_cmd, '&&', unset_cmd].join(' ')
       end
 
+      def list_command
+        sprintf 'cat %s', @file
+      end
+
     private
 
       # Returns command to grep config file for assignment

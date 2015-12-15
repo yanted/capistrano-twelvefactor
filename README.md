@@ -56,6 +56,12 @@ $ cap production "config:set[FOO=bar]"
 $ cap production config:unset[FOO]
 ```
 
+### List Variables
+
+```bash
+$ cap production config:list
+```
+
 Same zsh workaround applies here.
 
 ### Restarting your app
